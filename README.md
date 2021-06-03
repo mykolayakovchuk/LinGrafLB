@@ -1,3 +1,6 @@
+live example of using you can find at
+<h2><a href="http://nik-portf.club/lingraflb/">http://nik-portf.club/lingraflb/</h2>
+
 # LinGrafLB
 small Javascript library for buildig line charts using &lt;canvas>
 This small JavaScript Library is for building line graphs from input data in JSON format (use <canvas> API). It is adaptive to browser width. And there is buttons to change scale and move line graph on coordinate grid. Example of input data, which was a source for building this graph you can find below (also see file inputForLinGraf.js). Coordinate grid is clickable, after click it will draw coordinates of click.
