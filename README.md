@@ -1,5 +1,5 @@
 live example of using you can find at
-<h2><a href="http://nik-portf.club/lingraflb/">http://nik-portf.club/lingraflb/</h2>
+<h2><a href="http://nik-portf.ru/lingraflb/">http://nik-portf.ru/lingraflb/</h2>
 
 # LinGrafLB
 small Javascript library for buildig line charts using &lt;canvas>
