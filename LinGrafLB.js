@@ -223,8 +223,8 @@ class LinGraf {
         var currentClickXValue0Index=0; // это переменная под значение на оси Х ближайшее слева от "щелчка" мыши.
         var deltaYValue;
         ctx.clearRect(0,0, e.srcElement.width, e.srcElement.height);
-        this.drawGrid(e.path[0].parentElement.id);
-        this.drawGraph(e.path[0].parentElement.id);
+        this.drawGrid(ctx.canvas.parentElement.id);
+        this.drawGraph(ctx.canvas.parentElement.id);
         ctx.save();
         ctx.translate(150, 50);
         var x = e.pageX - document.getElementById(e.srcElement.id).offsetLeft-150;
@@ -287,38 +287,38 @@ class LinGraf {
 
     offsetYup(e){
         this.offsetY=this.offsetY-((this.scaleY*this.zoomY)/2); // меняем глобальную переменную по смещению графика
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     offsetYdown(e){
         this.offsetY=this.offsetY+((this.scaleY*this.zoomY)/2); // меняем глобальную переменную по смещению графика
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     offsetXleft(e){
         this.offsetX=this.offsetX-((this.scaleX*this.zoomX)/4); // меняем глобальную переменную по смещению графика
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     offsetXright(e){
         this.offsetX=this.offsetX+((this.scaleX*this.zoomX)/4); // меняем глобальную переменную по смещению графика
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     zoomXplus(e){//масштабирование по оси X
@@ -327,11 +327,11 @@ class LinGraf {
         }else{
             this.zoomX=this.zoomX+0.1;            
         }
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     zoomXminus(e){
@@ -340,11 +340,11 @@ class LinGraf {
         }else{
             this.zoomX=this.zoomX-0.1;            
         }
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     zoomYplus(e){//масштабирование по оси Y
@@ -353,11 +353,11 @@ class LinGraf {
         }else{
             this.zoomY=this.zoomY+0.1;
         }
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     zoomYminus(e){
@@ -366,58 +366,58 @@ class LinGraf {
         }else{
             this.zoomY=this.zoomY-0.1;            
         }
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id); 
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id); 
     }
 
     buttonsFreezer(e){//проверка которая ограничивает область прокрутки
         //проверка которая ограничивает область прокрутки вверх offsetYup
         if (this.offsetY < this.heightGraphForConvertY*this.zoomY*(-1)){ 
-            document.getElementById(e.path[1].children[0].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[0].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[0].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[0].id).removeAttribute("disabled");  
         }
         //проверка которая ограничивает область прокрутки вниз offsetYdown
         if (this.offsetY > this.heightGraphForConvertY*this.zoomY){ 
-            document.getElementById(e.path[1].children[1].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[1].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[1].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[1].id).removeAttribute("disabled");  
         }
          //проверка которая ограничивает область прокрутки влево offsetXleft
          if (this.offsetX < this.widthGraphGlobal*this.zoomX*(-1)){ 
-            document.getElementById(e.path[1].children[2].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[2].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[2].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[2].id).removeAttribute("disabled");  
         }
         //проверка которая ограничивает область прокрутки вправо offsetXright
         if (this.offsetX > this.widthGraphGlobal*this.zoomX){ 
-            document.getElementById(e.path[1].children[3].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[3].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[3].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[3].id).removeAttribute("disabled");  
         }
         //проверка которая не даёт стать отрицательным числом переменной, которая отвечает за масштабирование
         if (this.zoomX > 10){ 
-            document.getElementById(e.path[1].children[4].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[4].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[4].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[4].id).removeAttribute("disabled");  
         }
         if (this.zoomX < 0.2){ 
-            document.getElementById(e.path[1].children[5].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[5].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[5].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[5].id).removeAttribute("disabled");  
         }
         if (this.zoomY > 10){ 
-            document.getElementById(e.path[1].children[6].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[6].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[6].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[6].id).removeAttribute("disabled");  
         }
         if (this.zoomY < 0.2){ 
-            document.getElementById(e.path[1].children[7].id).setAttribute("disabled", "disabled");
+            document.getElementById(e.srcElement.parentElement.children[7].id).setAttribute("disabled", "disabled");
         }else{
-            document.getElementById(e.path[1].children[7].id).removeAttribute("disabled");  
+            document.getElementById(e.srcElement.parentElement.children[7].id).removeAttribute("disabled");  
         }                    
     }
 
@@ -426,11 +426,11 @@ class LinGraf {
         this.zoomY=1;
         this.offsetX=0;//глобальная переменная отвечающиая за прокрутку области просмотра грвфиков
         this.offsetY=0;
-        var GraphContainer=e.path[2].id+"Graph";//находим элемент, в котором отрисован график
+        var GraphContainer=e.srcElement.parentElement.parentElement.id+"Graph";//находим элемент, в котором отрисован график
         var ctx = document.getElementById(GraphContainer).getContext("2d");
-        ctx.clearRect(0,0, e.path[2].children[1].clientWidth, e.path[2].children[1].clientHeight);//очищаем область графика
-        this.drawGrid(e.path[2].id);
-        this.drawGraph(e.path[2].id);
+        ctx.clearRect(0,0, ctx.canvas.width, ctx.canvas.height);//очищаем область графика
+        this.drawGrid(e.srcElement.parentElement.parentElement.id);
+        this.drawGraph(e.srcElement.parentElement.parentElement.id);
     }
 
     showData(){
